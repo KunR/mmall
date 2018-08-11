@@ -1,0 +1,17 @@
+*.class
+*.war
+*.ear
+*.iml
+#maven ignore
+target/
+
+.idea
+/idea/
+
+*.log
+*.cache
+*.diff
+*.patch
+
+yzb
+yab.pub
