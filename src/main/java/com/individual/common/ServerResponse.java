@@ -38,8 +38,8 @@ public class ServerResponse<T> implements Serializable {
     }
 
     @JsonIgnore
-    public boolean isSuccess(int status) {
-        return status == ResponseCode.SUCCESS.getCode();
+    public boolean isSuccess() {
+        return this.status == ResponseCode.SUCCESS.getCode();
     }
 
     public static <T> ServerResponse<T> createBySuccess() {
@@ -70,4 +70,15 @@ public class ServerResponse<T> implements Serializable {
         return new ServerResponse<T>(code, msg);
     }
 
+    public int getStatus() {
+        return status;
+    }
+
+    public String getMsg() {
+        return msg;
+    }
+
+    public T getData() {
+        return data;
+    }
 }

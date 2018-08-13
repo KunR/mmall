@@ -11,8 +11,8 @@
       <arg column="question" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="answer" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="role" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-      <arg column="update_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="create_time" javaType="java.time.LocalDateTime" jdbcType="TIMESTAMP" />
+      <arg column="update_time" javaType="java.time.LocalDateTime" jdbcType="TIMESTAMP" />
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
@@ -152,7 +152,13 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
   <select id="checkByUsername" parameterType="String" resultType="int">
-    SELECT COUNT(*) FROM mmall_user AS u WHERE u.username = #{username}
+  SELECT COUNT(*) FROM mmall_user AS u WHERE u.username = #{username}
+</select>
+  <select id="checkByUsernameAndPassword" parameterType="map" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM mmall_user AS u
+    WHERE u.username=#{username} AND u.password=#{password}
   </select>
 
 </mapper>

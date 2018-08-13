@@ -3,10 +3,13 @@ package com.individual.common;
 /**
  * 服务响应状态码
  * Created by Yangzu on 2018/8/12
+ * @author Administrator
  */
 public enum ResponseCode {
     SUCCESS(0, "SUCCESS"),
     ERROR(1, "ERROR"),
+    //用户状态
+    PASSWOED(3, "PASSWORD"),
     NEED_LOGIN(10, "NEED_LOGIN"),
     ILLEGAL_ARGUMENT(2, "ILLEGAL_ARGUMENT");
 
